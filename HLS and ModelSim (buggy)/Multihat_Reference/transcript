@@ -1,0 +1,342 @@
+# Reading C:/intelFPGA_lite/17.0/modelsim_ase/tcl/vsim/pref.tcl
+do runlab.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:43:09 on Oct 16,2022
+# vlog -reportprogress 300 ./top.sv 
+# -- Compiling module top
+# -- Compiling module top_tb
+# 
+# Top level modules:
+# 	top_tb
+# End time: 22:43:10 on Oct 16,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:43:10 on Oct 16,2022
+# vlog -reportprogress 300 ./adder_block.sv 
+# -- Compiling module adder_block
+# -- Compiling module adder_block_testbench
+# 
+# Top level modules:
+# 	adder_block_testbench
+# End time: 22:43:10 on Oct 16,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:43:10 on Oct 16,2022
+# vlog -reportprogress 300 ./hat_mul.sv 
+# -- Compiling module hat_mul
+# ** Error: (vlog-13069) ./hat_mul.sv(11): near ")": syntax error, unexpected ')', expecting ';' or ','.
+# -- Compiling module hat_mul_testbench
+# End time: 22:43:10 on Oct 16,2022, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: C:/intelFPGA_lite/17.0/modelsim_ase/win32aloem/vlog failed.
+# Error in macro ./runlab.do line 9
+# C:/intelFPGA_lite/17.0/modelsim_ase/win32aloem/vlog failed.
+#     while executing
+# "vlog "./hat_mul.sv""
+do runlab.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:43:42 on Oct 16,2022
+# vlog -reportprogress 300 ./top.sv 
+# -- Compiling module top
+# -- Compiling module top_tb
+# 
+# Top level modules:
+# 	top_tb
+# End time: 22:43:42 on Oct 16,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:43:42 on Oct 16,2022
+# vlog -reportprogress 300 ./adder_block.sv 
+# -- Compiling module adder_block
+# -- Compiling module adder_block_testbench
+# 
+# Top level modules:
+# 	adder_block_testbench
+# End time: 22:43:42 on Oct 16,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:43:42 on Oct 16,2022
+# vlog -reportprogress 300 ./hat_mul.sv 
+# -- Compiling module hat_mul
+# ** Error: (vlog-13069) ./hat_mul.sv(11): near ")": syntax error, unexpected ')', expecting ';' or ','.
+# -- Compiling module hat_mul_testbench
+# End time: 22:43:42 on Oct 16,2022, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: C:/intelFPGA_lite/17.0/modelsim_ase/win32aloem/vlog failed.
+# Error in macro ./runlab.do line 9
+# C:/intelFPGA_lite/17.0/modelsim_ase/win32aloem/vlog failed.
+#     while executing
+# "vlog "./hat_mul.sv""
+do runlab.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:44:07 on Oct 16,2022
+# vlog -reportprogress 300 ./top.sv 
+# -- Compiling module top
+# -- Compiling module top_tb
+# 
+# Top level modules:
+# 	top_tb
+# End time: 22:44:07 on Oct 16,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:44:07 on Oct 16,2022
+# vlog -reportprogress 300 ./adder_block.sv 
+# -- Compiling module adder_block
+# -- Compiling module adder_block_testbench
+# 
+# Top level modules:
+# 	adder_block_testbench
+# End time: 22:44:07 on Oct 16,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:44:07 on Oct 16,2022
+# vlog -reportprogress 300 ./hat_mul.sv 
+# -- Compiling module hat_mul
+# -- Compiling module hat_mul_testbench
+# 
+# Top level modules:
+# 	hat_mul_testbench
+# End time: 22:44:07 on Oct 16,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:44:07 on Oct 16,2022
+# vlog -reportprogress 300 ./my_lfsr.sv 
+# -- Compiling module my_lfsr
+# -- Compiling module my_lfsr_tb
+# 
+# Top level modules:
+# 	my_lfsr_tb
+# End time: 22:44:07 on Oct 16,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -voptargs=""+acc"" -t 1ps -lib work top_tb 
+# Start time: 22:44:08 on Oct 16,2022
+# Loading sv_std.std
+# Loading work.top_tb
+# Loading work.top
+# Loading work.my_lfsr
+# Loading work.hat_mul
+# Loading work.adder_block
+# WARNING: No extended dataflow license exists
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# ** Note: $stop    : ./top.sv(45)
+#    Time: 2515 ps  Iteration: 1  Instance: /top_tb
+# Break in Module top_tb at ./top.sv line 45
+add wave -position end  sim:/top_tb/dut/C2/a
+add wave -position end  sim:/top_tb/dut/C2/b
+add wave -position end  sim:/top_tb/dut/C2/c
+add wave -position end  sim:/top_tb/dut/C2/d
+add wave -position end  sim:/top_tb/dut/C2/z
+add wave -position end  sim:/top_tb/dut/C2/z1
+add wave -position end  sim:/top_tb/dut/C2/z2
+add wave -position end  sim:/top_tb/dut/C3/a
+add wave -position end  sim:/top_tb/dut/C3/b
+add wave -position end  sim:/top_tb/dut/C3/c
+add wave -position end  sim:/top_tb/dut/C3/d
+add wave -position end  sim:/top_tb/dut/C3/z
+add wave -position end  sim:/top_tb/dut/C3/z1
+add wave -position end  sim:/top_tb/dut/C3/z2
+add wave -position end  sim:/top_tb/dut/C4/a
+add wave -position end  sim:/top_tb/dut/C4/b
+add wave -position end  sim:/top_tb/dut/C4/c
+add wave -position end  sim:/top_tb/dut/C4/d
+add wave -position end  sim:/top_tb/dut/C4/z
+add wave -position end  sim:/top_tb/dut/C4/z1
+add wave -position end  sim:/top_tb/dut/C4/z2
+add wave -position end  sim:/top_tb/dut/C5/a
+add wave -position end  sim:/top_tb/dut/C5/b
+add wave -position end  sim:/top_tb/dut/C5/c
+add wave -position end  sim:/top_tb/dut/C5/d
+add wave -position end  sim:/top_tb/dut/C5/z
+add wave -position end  sim:/top_tb/dut/C5/z1
+add wave -position end  sim:/top_tb/dut/C5/z2
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf {D:/Courses/EE 599/Multihat_HLS/Multihat_Reference/multihat_wave.do}
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf {D:/Courses/EE 599/Multihat_HLS/Multihat_Reference/multihat_wave.do}
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf {D:/Courses/EE 599/Multihat_HLS/Multihat_Reference/multihat_wave.do}
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf {D:/Courses/EE 599/Multihat_HLS/Multihat_Reference/top_wave.do}
+do runlab.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 23:00:45 on Oct 16,2022
+# vlog -reportprogress 300 ./top.sv 
+# -- Compiling module top
+# -- Compiling module top_tb
+# 
+# Top level modules:
+# 	top_tb
+# End time: 23:00:45 on Oct 16,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 23:00:45 on Oct 16,2022
+# vlog -reportprogress 300 ./adder_block.sv 
+# -- Compiling module adder_block
+# -- Compiling module adder_block_testbench
+# 
+# Top level modules:
+# 	adder_block_testbench
+# End time: 23:00:45 on Oct 16,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 23:00:45 on Oct 16,2022
+# vlog -reportprogress 300 ./hat_mul.sv 
+# -- Compiling module hat_mul
+# -- Compiling module hat_mul_testbench
+# 
+# Top level modules:
+# 	hat_mul_testbench
+# End time: 23:00:45 on Oct 16,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 23:00:45 on Oct 16,2022
+# vlog -reportprogress 300 ./my_lfsr.sv 
+# -- Compiling module my_lfsr
+# -- Compiling module my_lfsr_tb
+# 
+# Top level modules:
+# 	my_lfsr_tb
+# End time: 23:00:45 on Oct 16,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 23:00:46 on Oct 16,2022, Elapsed time: 0:16:38
+# Errors: 0, Warnings: 1
+# vsim -voptargs=""+acc"" -t 1ps -lib work top_tb 
+# Start time: 23:00:46 on Oct 16,2022
+# Loading sv_std.std
+# Loading work.top_tb
+# Loading work.top
+# Loading work.my_lfsr
+# Loading work.hat_mul
+# Loading work.adder_block
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# ** Note: $stop    : ./top.sv(45)
+#    Time: 2515 ps  Iteration: 1  Instance: /top_tb
+# Break in Module top_tb at ./top.sv line 45
+do runlab.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 01:30:17 on Oct 17,2022
+# vlog -reportprogress 300 ./top.sv 
+# -- Compiling module top
+# -- Compiling module top_tb
+# 
+# Top level modules:
+# 	top_tb
+# End time: 01:30:17 on Oct 17,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 01:30:17 on Oct 17,2022
+# vlog -reportprogress 300 ./adder_block.sv 
+# -- Compiling module adder_block
+# -- Compiling module adder_block_testbench
+# 
+# Top level modules:
+# 	adder_block_testbench
+# End time: 01:30:17 on Oct 17,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 01:30:17 on Oct 17,2022
+# vlog -reportprogress 300 ./hat_mul.sv 
+# -- Compiling module hat_mul
+# -- Compiling module hat_mul_testbench
+# 
+# Top level modules:
+# 	hat_mul_testbench
+# End time: 01:30:17 on Oct 17,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 01:30:17 on Oct 17,2022
+# vlog -reportprogress 300 ./my_lfsr.sv 
+# -- Compiling module my_lfsr
+# -- Compiling module my_lfsr_tb
+# 
+# Top level modules:
+# 	my_lfsr_tb
+# End time: 01:30:17 on Oct 17,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 01:30:18 on Oct 17,2022, Elapsed time: 2:29:32
+# Errors: 0, Warnings: 0
+# vsim -voptargs=""+acc"" -t 1ps -lib work top_tb 
+# Start time: 01:30:18 on Oct 17,2022
+# Loading sv_std.std
+# Loading work.top_tb
+# Loading work.top
+# Loading work.my_lfsr
+# Loading work.hat_mul
+# Loading work.adder_block
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# ** Note: $stop    : ./top.sv(45)
+#    Time: 2515 ps  Iteration: 1  Instance: /top_tb
+# Break in Module top_tb at ./top.sv line 45
+add wave -position 14  sim:/top_tb/dut/C2/sel
+add wave -position 23  sim:/top_tb/dut/C3/sel
+add wave -position 32  sim:/top_tb/dut/C4/sel
+add wave -position 40  sim:/top_tb/dut/C5/sel
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf {D:/Courses/EE 599/Multihat_HLS/Multihat_Reference/top_wave.do}
+do runlab.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 01:31:59 on Oct 17,2022
+# vlog -reportprogress 300 ./top.sv 
+# -- Compiling module top
+# -- Compiling module top_tb
+# 
+# Top level modules:
+# 	top_tb
+# End time: 01:31:59 on Oct 17,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 01:31:59 on Oct 17,2022
+# vlog -reportprogress 300 ./adder_block.sv 
+# -- Compiling module adder_block
+# -- Compiling module adder_block_testbench
+# 
+# Top level modules:
+# 	adder_block_testbench
+# End time: 01:31:59 on Oct 17,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 01:31:59 on Oct 17,2022
+# vlog -reportprogress 300 ./hat_mul.sv 
+# -- Compiling module hat_mul
+# -- Compiling module hat_mul_testbench
+# 
+# Top level modules:
+# 	hat_mul_testbench
+# End time: 01:31:59 on Oct 17,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 01:31:59 on Oct 17,2022
+# vlog -reportprogress 300 ./my_lfsr.sv 
+# -- Compiling module my_lfsr
+# -- Compiling module my_lfsr_tb
+# 
+# Top level modules:
+# 	my_lfsr_tb
+# End time: 01:31:59 on Oct 17,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 01:32:00 on Oct 17,2022, Elapsed time: 0:01:42
+# Errors: 0, Warnings: 0
+# vsim -voptargs=""+acc"" -t 1ps -lib work top_tb 
+# Start time: 01:32:00 on Oct 17,2022
+# Loading sv_std.std
+# Loading work.top_tb
+# Loading work.top
+# Loading work.my_lfsr
+# Loading work.hat_mul
+# Loading work.adder_block
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# ** Note: $stop    : ./top.sv(45)
+#    Time: 2515 ps  Iteration: 1  Instance: /top_tb
+# Break in Module top_tb at ./top.sv line 45
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf {D:/Courses/EE 599/Multihat_HLS/Multihat_Reference/top_wave.do}
+# End time: 02:27:44 on Oct 17,2022, Elapsed time: 0:55:44
+# Errors: 0, Warnings: 0
