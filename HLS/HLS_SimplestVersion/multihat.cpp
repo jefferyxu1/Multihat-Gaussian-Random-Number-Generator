@@ -1,42 +1,25 @@
-#include <stdio.h>
-#include <ap_int.h>
-
-typedef ap_int<130> data_130;
-typedef ap_int<128> data_128;
-typedef ap_int<32> data_32;
-typedef ap_int<20> data_20;
-typedef ap_int<17> data_17;
-typedef ap_int<16> data_16;
-typedef ap_int<1> data_bit;
+#include "multihat.h"
 
 
-data_128 LFSR();
-ap_int<68> hat_mul1(data_32);
-ap_int<68> hat_mul2(data_32);
-ap_int<68> hat_mul3(data_32);
-ap_int<68> hat_mul4(data_32);
 
-data_16 adder_block(data_16, data_16, data_16, data_16);
-ap_int<288> multihat();
-
-ap_int<288> multihat() {
+data_16 multihat() {
     data_128 lfsr_value;
-    data_20 hat_mul_out1, hat_mul_out2, hat_mul_out3, hat_mul_out4, out;
+    static data_16 hat_mul_out1, hat_mul_out2, hat_mul_out3, hat_mul_out4, out;
 
     lfsr_value = LFSR();
+    // Comments here were used for C simulation debugger
+    // long long lfsr1 = (long long) lfsr_value.range(127, 64);
+    // long long lfsr2 = (long long) lfsr_value.range(63, 0);
     hat_mul_out1 = hat_mul1(lfsr_value.range(31, 0));
+    // int hmo1 = int(hat_mul_out1);
     hat_mul_out2 = hat_mul2(lfsr_value.range(63, 32));
+    //int hmo2 = int(hat_mul_out2);
     hat_mul_out3 = hat_mul3(lfsr_value.range(95, 64));
+    // int hmo3 = int(hat_mul_out3);
     hat_mul_out4 = hat_mul4(lfsr_value.range(127, 96));
-    out = adder_block(hat_mul_out1.range(15,0), hat_mul_out2.range(15,0),
-    					hat_mul_out3.range(15,0), hat_mul_out4.range(15,0));
-    ap_int<288> testOutput = (hat_mul_out4.range(67, 20), hat_mul_out3.range(67, 20),
-    			hat_mul_out2.range(67,20), hat_mul_out1.range(67, 20),
-    			hat_mul_out4.range(19, 16), hat_mul_out3.range(19, 16),
-    			hat_mul_out2.range(19,16), hat_mul_out1.range(19, 16),
-    			out, hat_mul_out1.range(15,0), hat_mul_out2.range(15,0),
-				hat_mul_out3.range(15,0), hat_mul_out4.range(15,0));
-    return testOutput;
+    // int hmo4 = int(hat_mul_out4);
+    out = adder_block(hat_mul_out1, hat_mul_out2, hat_mul_out3, hat_mul_out4);
+    return out;
 }
 
 data_16 adder_block(data_16 in0, data_16 in1, data_16 in2, data_16 in3) {
@@ -45,11 +28,10 @@ data_16 adder_block(data_16 in0, data_16 in1, data_16 in2, data_16 in3) {
     s00 = (in0[15], in0) + (in1[15], in1);
     s01 = (in2[15], in2) + (in3[15], in3);
     s10 = (s00[16], s00.range(16, 1)) + (s01[16], s01.range(16, 1));
-
     return s10.range(16, 1);
 }
 
-ap_int<68> hat_mul1 (data_32 in_32) {
+data_16 hat_mul1 (data_32 in_32) {
     static data_16 z = 0;
     static data_16 z1 = 0;
     static data_16 z2 = 0;
@@ -58,7 +40,7 @@ ap_int<68> hat_mul1 (data_32 in_32) {
     data_bit d = (in_32[27] ^ z1[15]) & (!(in_32[28] ^ in_32[27]));
 
     // update z2
-    z2.range(12, 0) = z1(12, 0);
+    z2.range(12, 0) = z1.range(12, 0);
     z2[15] = z1[15];
     if (c == 1) {
         if (d == 1) {
@@ -92,12 +74,10 @@ ap_int<68> hat_mul1 (data_32 in_32) {
         z.range(14, 13) = (in_32[15], in_32[15]);
     }
 
-    ap_int<68> output = (z, z1, z2, a, b, c, d, z2);
-    return output;
+    return z2;
 }
 
-
-ap_int<68> hat_mul2 (data_32 in_32) {
+data_16 hat_mul2(data_32 in_32) {
     static data_16 z = 0;
     static data_16 z1 = 0;
     static data_16 z2 = 0;
@@ -106,7 +86,7 @@ ap_int<68> hat_mul2 (data_32 in_32) {
     data_bit d = (in_32[27] ^ z1[15]) & (!(in_32[28] ^ in_32[27]));
 
     // update z2
-    z2.range(12, 0) = z1(12, 0);
+    z2.range(12, 0) = z1.range(12, 0);
     z2[15] = z1[15];
     if (c == 1) {
         if (d == 1) {
@@ -140,11 +120,10 @@ ap_int<68> hat_mul2 (data_32 in_32) {
         z.range(14, 13) = (in_32[15], in_32[15]);
     }
 
-    ap_int<68> output = (z, z1, z2, a, b, c, d, z2);
-    return output;
+    return z2;
 }
 
-ap_int<68> hat_mul3 (data_32 in_32) {
+data_16 hat_mul3(data_32 in_32) {
     static data_16 z = 0;
     static data_16 z1 = 0;
     static data_16 z2 = 0;
@@ -153,7 +132,7 @@ ap_int<68> hat_mul3 (data_32 in_32) {
     data_bit d = (in_32[27] ^ z1[15]) & (!(in_32[28] ^ in_32[27]));
 
     // update z2
-    z2.range(12, 0) = z1(12, 0);
+    z2.range(12, 0) = z1.range(12, 0);
     z2[15] = z1[15];
     if (c == 1) {
         if (d == 1) {
@@ -187,11 +166,10 @@ ap_int<68> hat_mul3 (data_32 in_32) {
         z.range(14, 13) = (in_32[15], in_32[15]);
     }
 
-    ap_int<68> output = (z, z1, z2, a, b, c, d, z2);
-    return output;
+    return z2;
 }
 
-ap_int<68> hat_mul4 (data_32 in_32) {
+data_16 hat_mul4(data_32 in_32) {
     static data_16 z = 0;
     static data_16 z1 = 0;
     static data_16 z2 = 0;
@@ -200,7 +178,7 @@ ap_int<68> hat_mul4 (data_32 in_32) {
     data_bit d = (in_32[27] ^ z1[15]) & (!(in_32[28] ^ in_32[27]));
 
     // update z2
-    z2.range(12, 0) = z1(12, 0);
+    z2.range(12, 0) = z1.range(12, 0);
     z2[15] = z1[15];
     if (c == 1) {
         if (d == 1) {
@@ -234,14 +212,200 @@ ap_int<68> hat_mul4 (data_32 in_32) {
         z.range(14, 13) = (in_32[15], in_32[15]);
     }
 
-    ap_int<68> output = (z, z1, z2, a, b, c, d, z2);
-    return output;
+    return z2;
+}
+
+/*
+data_16 hat_mul1(data_32 in_32) {
+    static data_16 z = 0;
+    static data_16 z1 = 0;
+    static data_16 z2 = 0;
+
+    data_bit c = (z1.range(14,14) ^ z1.range(15,15)) & (!(z1.range(13,13) ^ z1.range(14,14)));
+    data_bit d = (in_32.range(27,27) ^ z1.range(15,15)) & (!(in_32.range(28,28) ^ in_32.range(27,27)));
+
+    // update z2
+    z2.range(12, 0) = z1.range(12, 0);
+    z2.range(15,15) = z1.range(15,15);
+    if (c == 1) {
+        if (d == 1) {
+            z2.range(14, 13) = in_32.range(30, 29);
+        } else {
+            z2.range(14, 13) = in_32.range(28, 27);
+        }
+    } else {
+        z2.range(14, 13) = z1.range(14, 13);
+    }
+
+    data_bit a = (in_32.range(20,20) | in_32.range(21,21) | in_32.range(22,22)) & in_32.range(23,23);
+    data_bit b = in_32.range(24,24) & in_32.range(25,25) & in_32.range(26,26);
+
+    // update z1
+    z1.range(13, 0) = z.range(13, 0);
+    z1.range(15,15) = z.range(15,15);
+
+    if (b == 1) {
+        z1.range(14,14) = z.range(14,14);
+    } else {
+        z1.range(15,15) = z.range(15,15);
+    }
+
+    // update z
+    z.range(12, 0) = in_32.range(12, 0);
+    z.range(15,15) = in_32.range(15,15);
+
+    if (a == 0) {
+        z.range(14, 13) = in_32.range(14, 13);
+    } else {
+        z.range(14, 13) = (in_32.range(15,15), in_32.range(15,15));
+    }
+
+    return z2;
+}
+
+data_16 hat_mul2(data_32 in_32) {
+    static data_16 z = 0;
+    static data_16 z1 = 0;
+    static data_16 z2 = 0;
+
+    data_bit c = (z1.range(14,14) ^ z1.range(15,15)) & (!(z1.range(13,13) ^ z1.range(14,14)));
+    data_bit d = (in_32.range(27,27) ^ z1.range(15,15)) & (!(in_32.range(28,28) ^ in_32.range(27,27)));
+
+    // update z2
+    z2.range(12, 0) = z1.range(12, 0);
+    z2.range(15,15) = z1.range(15,15);
+    if (c == 1) {
+        if (d == 1) {
+            z2.range(14, 13) = in_32.range(30, 29);
+        } else {
+            z2.range(14, 13) = in_32.range(28, 27);
+        }
+    } else {
+        z2.range(14, 13) = z1.range(14, 13);
+    }
+
+    data_bit a = (in_32.range(20,20) | in_32.range(21,21) | in_32.range(22,22)) & in_32.range(23,23);
+    data_bit b = in_32.range(24,24) & in_32.range(25,25) & in_32.range(26,26);
+
+    // update z1
+    z1.range(13, 0) = z.range(13, 0);
+    z1.range(15,15) = z.range(15,15);
+
+    if (b == 1) {
+        z1.range(14,14) = z.range(14,14);
+    } else {
+        z1.range(15,15) = z.range(15,15);
+    }
+
+    // update z
+    z.range(12, 0) = in_32.range(12, 0);
+    z.range(15,15) = in_32.range(15,15);
+
+    if (a == 0) {
+        z.range(14, 13) = in_32.range(14, 13);
+    } else {
+        z.range(14, 13) = (in_32.range(15,15), in_32.range(15,15));
+    }
+
+    return z2;
+}
+
+data_16 hat_mul3(data_32 in_32) {
+    static data_16 z = 0;
+    static data_16 z1 = 0;
+    static data_16 z2 = 0;
+
+    data_bit c = (z1.range(14,14) ^ z1.range(15,15)) & (!(z1.range(13,13) ^ z1.range(14,14)));
+    data_bit d = (in_32.range(27,27) ^ z1.range(15,15)) & (!(in_32.range(28,28) ^ in_32.range(27,27)));
+
+    // update z2
+    z2.range(12, 0) = z1.range(12, 0);
+    z2.range(15,15) = z1.range(15,15);
+    if (c == 1) {
+        if (d == 1) {
+            z2.range(14, 13) = in_32.range(30, 29);
+        } else {
+            z2.range(14, 13) = in_32.range(28, 27);
+        }
+    } else {
+        z2.range(14, 13) = z1.range(14, 13);
+    }
+
+    data_bit a = (in_32.range(20,20) | in_32.range(21,21) | in_32.range(22,22)) & in_32.range(23,23);
+    data_bit b = in_32.range(24,24) & in_32.range(25,25) & in_32.range(26,26);
+
+    // update z1
+    z1.range(13, 0) = z.range(13, 0);
+    z1.range(15,15) = z.range(15,15);
+
+    if (b == 1) {
+        z1.range(14,14) = z.range(14,14);
+    } else {
+        z1.range(15,15) = z.range(15,15);
+    }
+
+    // update z
+    z.range(12, 0) = in_32.range(12, 0);
+    z.range(15,15) = in_32.range(15,15);
+
+    if (a == 0) {
+        z.range(14, 13) = in_32.range(14, 13);
+    } else {
+        z.range(14, 13) = (in_32.range(15,15), in_32.range(15,15));
+    }
+
+    return z2;
 }
 
 
 
+data_16 hat_mul4(data_32 in_32) {
+    static data_16 z = 0;
+    static data_16 z1 = 0;
+    static data_16 z2 = 0;
 
+    data_bit c = (z1.range(14,14) ^ z1.range(15,15)) & (!(z1.range(13,13) ^ z1.range(14,14)));
+    data_bit d = (in_32.range(27,27) ^ z1.range(15,15)) & (!(in_32.range(28,28) ^ in_32.range(27,27)));
 
+    // update z2
+    z2.range(12, 0) = z1.range(12, 0);
+    z2.range(15,15) = z1.range(15,15);
+    if (c == 1) {
+        if (d == 1) {
+            z2.range(14, 13) = in_32.range(30, 29);
+        } else {
+            z2.range(14, 13) = in_32.range(28, 27);
+        }
+    } else {
+        z2.range(14, 13) = z1.range(14, 13);
+    }
+
+    data_bit a = (in_32.range(20,20) | in_32.range(21,21) | in_32.range(22,22)) & in_32.range(23,23);
+    data_bit b = in_32.range(24,24) & in_32.range(25,25) & in_32.range(26,26);
+
+    // update z1
+    z1.range(13, 0) = z.range(13, 0);
+    z1.range(15,15) = z.range(15,15);
+
+    if (b == 1) {
+        z1.range(14,14) = z.range(14,14);
+    } else {
+        z1.range(15,15) = z.range(15,15);
+    }
+
+    // update z
+    z.range(12, 0) = in_32.range(12, 0);
+    z.range(15,15) = in_32.range(15,15);
+
+    if (a == 0) {
+        z.range(14, 13) = in_32.range(14, 13);
+    } else {
+        z.range(14, 13) = (in_32.range(15,15), in_32.range(15,15));
+    }
+
+    return z2;
+}
+*/
 data_128 LFSR() {
 	static data_130 regs("0b0000010010001101000101011001111000100110111101111011111010001000010101010010101100101111010101010110100100011010001101101011110101", 2);
 	data_130 next;
