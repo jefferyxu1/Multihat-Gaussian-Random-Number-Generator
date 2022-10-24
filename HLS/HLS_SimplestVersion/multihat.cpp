@@ -2,24 +2,20 @@
 
 
 
-data_16 multihat() {
+ap_fixed<16,4> multihat() {
     data_128 lfsr_value;
     static data_16 hat_mul_out1, hat_mul_out2, hat_mul_out3, hat_mul_out4, out;
-
+    ap_fixed<16,4> fixedpoint;
     lfsr_value = LFSR();
-    // Comments here were used for C simulation debugger
-    // long long lfsr1 = (long long) lfsr_value.range(127, 64);
-    // long long lfsr2 = (long long) lfsr_value.range(63, 0);
     hat_mul_out1 = hat_mul1(lfsr_value.range(31, 0));
-    // int hmo1 = int(hat_mul_out1);
     hat_mul_out2 = hat_mul2(lfsr_value.range(63, 32));
-    //int hmo2 = int(hat_mul_out2);
     hat_mul_out3 = hat_mul3(lfsr_value.range(95, 64));
-    // int hmo3 = int(hat_mul_out3);
     hat_mul_out4 = hat_mul4(lfsr_value.range(127, 96));
-    // int hmo4 = int(hat_mul_out4);
     out = adder_block(hat_mul_out1, hat_mul_out2, hat_mul_out3, hat_mul_out4);
-    return out;
+
+    fixedpoint.range(15,12) = out.range(15,12);
+    fixedpoint.range(11, 0) = out.range(11, 0);
+    return fixedpoint;
 }
 
 data_16 adder_block(data_16 in0, data_16 in1, data_16 in2, data_16 in3) {
