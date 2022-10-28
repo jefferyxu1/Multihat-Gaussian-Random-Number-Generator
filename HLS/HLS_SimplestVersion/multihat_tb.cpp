@@ -6,7 +6,7 @@ int main() {
 
 	int result[30];
     for (int i = 0; i < 30; i++) {
-        result[i] = int(multihat());
+        result[i] = int(multihat()); // read in debugger
         cout << result[i];
     }
     return 0;
