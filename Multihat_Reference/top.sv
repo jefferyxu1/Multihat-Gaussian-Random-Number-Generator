@@ -37,8 +37,8 @@ module top_tb();
     initial begin
         reset <= 1'b1; @(posedge clk);
         reset <= 1'b0; @(posedge clk);
-        f = $fopen("OutputHex1.txt", "w");
-        for (i = 0; i < 250; i++) begin
+        f = $fopen("OutputHex.txt", "w");
+        for (i = 0; i < 25000; i++) begin
             $fwrite(f, "%h\n", out);
             @(posedge clk);
         end
